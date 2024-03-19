@@ -10,18 +10,36 @@ createApp({
   },
   
   methods:{
-    
+
+    getApi(){
+      // gli passo solo apiUrl, non concateno nulla
+      axios.get(this.apiUrl)
+      // risposta
+      .then((response) => {
+        // la risposta a cosa corrrisponde?
+        this.arrayEmailTotali.push(response.data);
+        console.log(response)
+        
+      })
+      // errore
+      .catch( (errore) => {
+        console.log(errore)
+      })
+    },
+
     // 1. ciclo for generare 10 email
     numeroMaxEmail(){
       for(let i = 0; i <= 10; i++){
         if(this.arrayEmailTotali.length < 10){
-          this.arrayEmailTotali.push(data.response);
+          // devo richiamare getApi non il contrario
+          this.getApi()
         }
       }
-      console.log(this.numeroMaxEmail)
+      console.log(this.arrayEmailTotali)
     }
   },
 
   mounted(){
+    this.numeroMaxEmail();
   }
 }).mount('#app')
