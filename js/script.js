@@ -5,7 +5,8 @@ createApp({
 
     return{
       arrayEmailTotali: [],
-      apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail'
+      apiUrl: 'https://flynn.boolean.careers/exercises/api/random/mail',
+      numeroEmail: 0
     }
   },
   
@@ -21,6 +22,9 @@ createApp({
         // All'interno di questo oggetto di risposta, data è una proprietà che contiene i dati restituiti dall'API
         this.arrayEmailTotali.push(response.data.response);
         console.log(response)
+        this.numeroEmail++
+        console.log(this.numeroEmail, '------>>>>')
+        this.checkNumeriTotali()
         
       })
       // errore
@@ -38,10 +42,22 @@ createApp({
         }
       }
       console.log(this.arrayEmailTotali)
-    }
+    },
+
+    checkNumeriTotali(){
+      if(this.numeroEmail === 10){
+        if(this.arrayEmailTotali.length = 10){
+          console.log('ciao')
+        }else{
+          this.numeroEmail = 'Loading...'
+        }
+      }
+    },
+  
   },
 
   mounted(){
+    // generare 10 email al caricamento 
     this.numeroMaxEmail();
   }
 }).mount('#app')
