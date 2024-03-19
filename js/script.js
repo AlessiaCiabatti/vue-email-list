@@ -31,7 +31,7 @@ createApp({
 
     // 1. ciclo for generare 10 email
     numeroMaxEmail(){
-      for(let i = 0; i <= 10; i++){
+      for(let i = 0; i < 10; i++){
         if(this.arrayEmailTotali.length < 10){
           // devo richiamare getApi non il contrario
           this.getApi()
