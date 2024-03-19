@@ -17,7 +17,9 @@ createApp({
       // risposta
       .then((response) => {
         // la risposta a cosa corrrisponde?
-        this.arrayEmailTotali.push(response.data);
+        // response. si riferisce all'oggetto restituito dalla chiamata axios all'API
+        // All'interno di questo oggetto di risposta, data è una proprietà che contiene i dati restituiti dall'API
+        this.arrayEmailTotali.push(response.data.response);
         console.log(response)
         
       })
